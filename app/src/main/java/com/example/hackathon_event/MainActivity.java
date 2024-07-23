@@ -35,7 +35,27 @@ public class MainActivity extends AppCompatActivity {
                 .add(R.id.container, feedbackFragment, "feedbackFragment").hide(feedbackFragment)
                 .commit();
 
-        
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+
+                if(id == R.id.home){
+                    getSupportFragmentManager().beginTransaction().hide(exploreFragment).hide(registerFragment1).hide(feedbackFragment).show(homeFragment).commit();
+                    return true;
+                }else if(id == R.id.explore){
+                    getSupportFragmentManager().beginTransaction().hide(homeFragment).hide(feedbackFragment).hide(registerFragment1).show(exploreFragment).commit();
+                    return true;
+                }else if(id == R.id.register){
+                    getSupportFragmentManager().beginTransaction().hide(homeFragment).hide(exploreFragment).hide(feedbackFragment).show(registerFragment1).commit();
+                    return true;
+                }else if(id == R.id.feedback){
+                    getSupportFragmentManager().beginTransaction().hide(homeFragment).hide(exploreFragment).hide(registerFragment1).show(feedbackFragment).commit();
+                    return true;
+                }
+                return false;
+            }
+        });
 
     }
 //
