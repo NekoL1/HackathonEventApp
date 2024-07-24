@@ -43,7 +43,14 @@ public class RegisterFragment2 extends Fragment {
                     bundle.putString("city", city);
                 }
 
-               
+                SummaryFragment summaryFragment = new SummaryFragment();
+                summaryFragment.setArguments(bundle);
+                //containing all the collected data is set as arguments for the next fragment
+
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, summaryFragment)
+                        .addToBackStack(null) //called to add the transaction to the back stack, allowing the user to navigate back.
+                        .commit();
             }
         });
 
