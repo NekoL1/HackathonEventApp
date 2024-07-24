@@ -24,7 +24,23 @@ public class RegisterFragment1 extends Fragment {
         nameEditText = view.findViewById(R.id.nameEditText);
         nextButton = view.findViewById(R.id.nextButton);
 
-        
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = nameEditText.getText().toString();
+
+                Bundle bundle = new Bundle(); //created to store the retrieved name.
+                bundle.putString("name", name);
+
+                RegisterFragment2 registerFragment2 = new RegisterFragment2();
+                registerFragment2.setArguments(bundle);
+
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.container, registerFragment2)
+                        .addToBackStack(null) //called to add the transaction to the back stack, allowing the user to navigate back.
+                        .commit();
+            }
+        });
 
         return view;
     }
