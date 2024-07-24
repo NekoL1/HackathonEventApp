@@ -29,7 +29,22 @@ public class RegisterFragment2 extends Fragment {
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            
+            public void onClick(View v) {
+                String id = idEditText.getText().toString();
+                String email = emailEditText.getText().toString();
+                String phone = phoneEditText.getText().toString();
+                String city = cityEditText.getText().toString();
+
+                Bundle bundle = getArguments();
+                if (bundle != null) {
+                    bundle.putString("id", id);
+                    bundle.putString("email", email);
+                    bundle.putString("phone", phone);
+                    bundle.putString("city", city);
+                }
+
+               
+            }
         });
 
         return view;
