@@ -30,7 +30,16 @@ public class SummaryFragment extends Fragment {
             }
         });
 
-        
+        Bundle bundle = getArguments();  //containing the user's registration details is retrieved using getArguments().
+        if (bundle != null) {  //Displays the summary of the user's registration details.
+            String name = bundle.getString("name");
+            String id = bundle.getString("id");
+            String email = bundle.getString("email");
+            String phone = bundle.getString("phone");
+            String city = bundle.getString("city");
+
+           
+        }
 
         return view;
     }
