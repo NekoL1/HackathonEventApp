@@ -38,7 +38,9 @@ public class SummaryFragment extends Fragment {
             String phone = bundle.getString("phone");
             String city = bundle.getString("city");
 
-           
+            String summary = "Name:     " + name + "\nIDnum:     " + id + "\nEmail:     " + email +
+                    "\nPhone:    " + phone + "\nCity:    " + city;
+            summaryTextView.setText(summary);
         }
 
         return view;
