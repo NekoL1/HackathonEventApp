@@ -22,7 +22,15 @@ public class SummaryFragment extends Fragment {
         summaryTextView = view.findViewById(R.id.summaryTextView);
         backButton = view.findViewById(R.id.backButton);
 
-       
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate back to the RegisterFragment directly
+                ((MainActivity) requireActivity()).bottomNavigationView.setSelectedItemId(R.id.register);
+            }
+        });
+
+        
 
         return view;
     }
